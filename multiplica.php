@@ -3,8 +3,8 @@
 $nen = readline("Hola, soc Siri, com et dius?\n");
 $minuts = readline("Quants minuts vols jugar?\n");
 
-$array_taules = [2, 3, 5];
-//$nen='Genis';
+$array_taules = [2, 3, 4, 5];
+//$array_taules = [2];
 $correctes = 0;
 $fails = 0;
 $temps_total = 0;
@@ -27,6 +27,7 @@ while (1) {
         echo "Aixo no es un numero!!!\n";
         $input = readline("$nen, $taula * " . $segon . " =\n");
     }
+    system('clear');
     $final = time();
     $temps = $final - $inici;
 
@@ -41,7 +42,7 @@ while (1) {
     $temps_total = $temps_total + $temps;
     echo "$nen portes $correctes respostes correctes i $fails respostes equivocades! en $temps_total segons\n";
     if ($temps_total >= (60 * $minuts)) {
-        echo "Molt be $nen la teva puntuacio final es de " . ($correctes - $fails) / $minuts . "!!!\n";
+        echo "Molt be $nen la teva puntuacio final es de " . round(($correctes - $fails) / $minuts,1) . "!!!\n";
         beep();
         beep();
         beep();
