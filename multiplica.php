@@ -4,11 +4,12 @@ $nen = readline("Hola, soc Siri, com et dius?\n");
 $minuts = readline("Quants minuts vols jugar?\n");
 
 $array_taules = [2, 3, 4, 5];
-//$array_taules = [2];
+//$array_taules = [8];
 $correctes = 0;
 $fails = 0;
 $temps_total = 0;
 $respostes = array();
+$array_fails=array();
 
 while (1) {
     $taula = $array_taules[array_rand($array_taules)];
@@ -37,6 +38,7 @@ while (1) {
     } else {
         echo "Molt malament $nen, tothom sap que $taula*$segon=" . ($taula * $segon) . " has trigat $temps segons \n";
         $fails++;
+        $array_fails[]="$taula x $segon";
         beep();
     }
     $temps_total = $temps_total + $temps;
@@ -47,6 +49,11 @@ while (1) {
         beep();
         beep();
         beep();
+        if ($array_fails)
+        {
+          echo "Els errors que has comes son:\n";
+          print_r($array_fails);
+        }
         die("Hem acabat\n");
     }
 }
